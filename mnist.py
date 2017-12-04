@@ -175,6 +175,7 @@ plot_model_history(model_info,'earlystopping.png')
 print '##########################'
 print ''
 
+
 ## Lenet-5 Model
 '''
 conv = True
