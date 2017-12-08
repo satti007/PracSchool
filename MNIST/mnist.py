@@ -82,7 +82,6 @@ def train(X_train,Y_train,X_test,Y_test,drop_prob,activ_fun,num_epochs,callback)
     score = model.evaluate(X_test, Y_test,verbose=0)
     return model_info,score
 
-'''
 def conv_train(X_train,Y_train,X_test,Y_test,num_epochs,callback):
 	model = Sequential()
 	model.add(Convolution2D(20, 5, strides=(1, 1), activation='relu', input_shape=(1,28,28), data_format='channels_first'))
@@ -102,7 +101,7 @@ def conv_train(X_train,Y_train,X_test,Y_test,num_epochs,callback):
 	    model_info = model.fit(X_train, Y_train,batch_size=32,epochs=num_epochs,verbose=2,validation_split=0.15)
 	score = model.evaluate(X_test, Y_test,verbose=0)
 	return model_info,score
-'''
+
 conv = False
 X_train,Y_train,X_test,Y_test = dataPrep(conv)
 
@@ -177,7 +176,6 @@ print ''
 
 
 ## Lenet-5 Model
-'''
 conv = True
 X_train,Y_train,X_test,Y_test = dataPrep(conv)
 
@@ -194,4 +192,29 @@ print('Test accuracy:', score[1])
 plot_model_history(model_info,'lenet_earlystopping.png')
 print '##########################'
 print ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+import re
+
+file = open('train.log','r')
+data = file.read()
+loss = re.findall(r' loss: (.*?) ',data,re.DOTALL)
+acc = re.findall(r' acc: (.*?) ',data,re.DOTALL)
+val_loss = re.findall(r' - val_loss: (.*?) - val_acc: ',data,re.DOTALL)
+val_acc = re.findall(r' - val_acc: (.*?)\n',data,re.DOTALL)
 '''
